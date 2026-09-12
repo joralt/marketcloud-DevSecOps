@@ -4,4 +4,4 @@ rules:
     severity: ERROR
     languages:
       - python
-    pattern: subprocess.run(..., Shell=True, ...)
+    pattern: subprocess.run(..., shell=True, ...)

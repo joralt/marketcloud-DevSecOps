@@ -16,4 +16,5 @@ def diagnostico(host):
  
 host_usuario = input("Ingrese un host: ")
 print(diagnostico(host_usuario))
+
  
