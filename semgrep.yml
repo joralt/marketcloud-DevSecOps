@@ -1,0 +1,7 @@
+rules:
+  - id: python-shell-true
+    message: Uso inseguro de subprocess.run con shell=True
+    severity: ERROR
+    languages:
+      - python
+    pattern: subprocess.run(..., Shell=True, ...)

@@ -1,20 +1,31 @@
 name: MarketCloud DevSecOps Pipeline
  
 on:
- push:
-   branches:
-     - main
+
+  push:
+
+    branches:
+
+      - main
  
 jobs:
- prueba-pipeline:
-   runs-on: ubuntu-latest
+
+  sast:
+
+    runs-on: ubuntu-latest
  
-   steps:
-     - name: Mostrar mensaje
-       run: echo "Pipeline DevSecOps funcionando"
+    steps:
+
+      - name: Descargar código
+
+        uses: actions/checkout@v7
  
-     - name: Mostrar fecha
-       run: date
+      - name: Instalar Semgrep
+
+        run: python3 -m pip install semgrep
  
-     - name: Confirmar resultado
-       run: echo "Pipeline completado correctamente"
+      - name: Ejecutar análisis SAST
+
+        run: semgrep scan --config semgrep.yml --error app.py
+
+ 
